@@ -18,7 +18,7 @@ namespace Chinook.Data.Entities
        [StringLength(200, ErrorMessage ="The name has a max of 200 characters")]
        public string name { get; set; }
         public int? AlbumId { get; set; }
-        public int MediatypeId { get; set; }
+        public int MediaTypeId { get; set; }
         public int? GenreId { get; set; }
         [StringLength(220, ErrorMessage = "The Composer has a max of 200 characters")]
         public string Composer { get; set; }
