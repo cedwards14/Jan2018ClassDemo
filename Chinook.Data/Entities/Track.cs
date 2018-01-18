@@ -26,5 +26,8 @@ namespace Chinook.Data.Entities
         public int? Bytes { get; set; }
         public decimal UnitPrice { get; set; }
 
+
+        //virtual nav
+        public virtual Album Album { get; set; }
     }
 }
