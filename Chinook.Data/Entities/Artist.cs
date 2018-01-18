@@ -16,5 +16,7 @@ namespace Chinook.Data.Entities
         public int ArtistId { get; set; }
         [StringLength(120, ErrorMessage ="Artist name has a maximum of 120 characters")]
         public string Name { get; set; }
+        //navigational properties
+        public virtual ICollection<Album> Albums { get; set; }
     }
 }

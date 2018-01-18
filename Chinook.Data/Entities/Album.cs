@@ -15,14 +15,15 @@ namespace Chinook.Data.Entities
     {
         [Key]
         public int AlbumId { get; set; }
-        [StringLength(160,ErrorMessage = "The title's max length is 160 characters")]
+        [StringLength(160, ErrorMessage = "The title's max length is 160 characters")]
         public string Title { get; set; }
         public int ArtistId { get; set; }
         public int ReleaseYear { get; set; }
         [StringLength(50, ErrorMessage = "The ReleaseLabels's max length is 50 characters")]
         public string ReleaseLabel { get; set; }
 
-
-
+        //nav props
+        public virtual Artist Artist { get; set; }
+        public virtual ICollection<Track> Tracks { get; set; }
     }
 }
