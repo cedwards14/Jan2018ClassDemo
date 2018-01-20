@@ -21,7 +21,7 @@ namespace ChinookSystem.BLL
             //Create a transaction instance of your context class
             using (var context = new ChinookContext())
             {
-                return context.Tracks.OrderBy(x => x.name).ToList();
+                return context.Tracks.OrderBy(x => x.Name).ToList();
             }
         }
 
