@@ -7,7 +7,7 @@
         <AlternatingItemTemplate>
             <tr style="background-color: #9AEB8C; color: #000000;">
                 <td>
-                    <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" />
+                    <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" BackColor="#528cd8" />
                     <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                 </td>
                 <td>
@@ -107,7 +107,7 @@
                     </td>
                 </tr>
                 <tr runat="server">
-                    <td runat="server" style="text-align: center; background-color: #EB8CCA; font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333;">
+                    <td runat="server" style="text-align: center; background-color: #EB8CCA; font-family: Verdana, Arial, Helvetica, sans-serif; color: #e08611;">
                         <asp:DataPager runat="server" ID="DataPager1">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False"></asp:NextPreviousPagerField>
@@ -120,7 +120,7 @@
             </table>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <tr style="background-color: #FFCC66; font-weight: bold; color: #000080;">
+            <tr style="background-color: #FFCC66; font-weight: bold; color: #000000;">
                 <td>
                     <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" />
                     <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
