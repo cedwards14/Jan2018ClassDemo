@@ -13,5 +13,17 @@ namespace Jan2018DemoWebSite.SamplePages
         {
 
         }
+
+        protected void AlbumList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //first, we wish to access the specific row that was sec=lected by pressing the view link which is the select command button
+            //of the gridview.
+            //Remember the View Link is a command Button 
+            GridViewRow agvrow = AlbumList.Rows[AlbumList.SelectedIndex];
+
+            //access the data from gthe gridview templatecontrol
+            //use the .FindControl("IdControlName") to access the desired control
+            string albumid = (agvrow.FindControl("AlbumId") as Label).Text;
+        }
     }
 }

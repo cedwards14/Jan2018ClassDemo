@@ -2,13 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h3>Serious Business</h3>
     <div class="row">
-        <asp:GridView ID="AlbumList" runat="server" AutoGenerateColumns="False" DataSourceID="AlbumListODS" AllowPaging="True" PageSize="15" BorderStyle="Double" GridLines="Horizontal" CellPadding="150" CellSpacing="150" HorizontalAlign="Center">
+        <asp:GridView ID="AlbumList" runat="server" AutoGenerateColumns="False" DataSourceID="AlbumListODS" AllowPaging="True" PageSize="15" BorderStyle="Double" GridLines="Horizontal" CellPadding="150" CellSpacing="150" HorizontalAlign="Center" OnSelectedIndexChanged="AlbumList_SelectedIndexChanged">
             <Columns>
                 <asp:CommandField SelectText="View" ShowSelectButton="True"></asp:CommandField>
                 <asp:TemplateField HeaderText="Id" SortExpression="AlbumId">
                    
                     <ItemTemplate>
-                        <asp:Label runat="server" Text='<%# Eval("AlbumId") %>' ID="Label1"></asp:Label>
+                        <asp:Label runat="server" Text='<%# Eval("AlbumId") %>' ID="Label1"></asp:Label>&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Title" SortExpression="Title">
