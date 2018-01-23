@@ -2,16 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>ALBUMS!!!!!!!!!!!!!!!!!</h1>
-    <asp:ListView ID="AlbumCrud" runat="server" DataSourceID="AlbumCRUDODS" InsertItemPosition="LastItem" DataKeyNames="AlbumId">
+    <asp:ListView ID="AlbumCrud" runat="server" DataSourceID="AlbumCRUDODS" InsertItemPosition="FirstItem" DataKeyNames="AlbumId">
 
         <AlternatingItemTemplate>
-            <tr style="background-color: #FAFAD2; color: #284775;">
+            <tr style="background-color: #9AEB8C; color: #EB8CCA;">
                 <td>
                     <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" />
                     <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                 </td>
                 <td>
-                    <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" /></td>
+                    <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" Width="75px"/></td>
                 <td>
                     <asp:Label Text='<%# Eval("Title") %>' runat="server" ID="TitleLabel" /></td>
                 <td>
@@ -30,13 +30,13 @@
                     <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                 </td>
                 <td>
-                    <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
+                    <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" Width="75px" Enabled="false"/></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox" /></td>
                 <td>
-                    <asp:TextBox Text='<%# Bind("ReleaseYear") %>' runat="server" ID="ReleaseYearTextBox" /></td>
+                    <asp:TextBox Text='<%# Bind("ReleaseYear") %>' runat="server" ID="ReleaseYearTextBox" Width="50px"/></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("ReleaseLabel") %>' runat="server" ID="ReleaseLabelTextBox" /></td>
             
@@ -56,13 +56,13 @@
                     <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
                 </td>
                 <td>
-                    <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
+                    <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" Width="75px" Enabled="false"/></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox" /></td>
                 <td>
-                    <asp:TextBox Text='<%# Bind("ReleaseYear") %>' runat="server" ID="ReleaseYearTextBox" /></td>
+                    <asp:TextBox Text='<%# Bind("ReleaseYear") %>' runat="server" ID="ReleaseYearTextBox" Width="50px"/></td>
                 <td>
                     <asp:TextBox Text='<%# Bind("ReleaseLabel") %>' runat="server" ID="ReleaseLabelTextBox" /></td>
               
@@ -94,11 +94,11 @@
                         <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
                             <tr runat="server" style="background-color: #FFFBD6; color: #333333;">
                                 <th runat="server"></th>
-                                <th runat="server">AlbumId</th>
+                                <th runat="server">Id</th>
                                 <th runat="server">Title</th>
-                                <th runat="server">ArtistId</th>
-                                <th runat="server">ReleaseYear</th>
-                                <th runat="server">ReleaseLabel</th>
+                                <th runat="server">Artist</th>
+                                <th runat="server">Year</th>
+                                <th runat="server">Label</th>
                         
                             </tr>
                             <tr runat="server" id="itemPlaceholder"></tr>
