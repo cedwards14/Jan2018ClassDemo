@@ -8,32 +8,32 @@
                 <asp:TemplateField HeaderText="Id" SortExpression="AlbumId">
                    
                     <ItemTemplate>
-                        <asp:Label runat="server" Text='<%# Eval("AlbumId") %>' ID="Label1"></asp:Label>&nbsp;
+                        <asp:Label runat="server" Text='<%# Eval("AlbumId") %>' ID="AlbumId"></asp:Label>&nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Title" SortExpression="Title">
                    
                     <ItemTemplate>
-                        <asp:Label runat="server" Text='<%# Eval("Title") %>' ID="Label2"></asp:Label>
+                        <asp:Label runat="server" Text='<%# Eval("Title") %>' ID="Label2"></asp:Label>&nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Artist" SortExpression="ArtistId">
                    
                     <ItemTemplate>
-                        <asp:DropDownList ID="ArtistList" runat="server" DataSourceID="ArtistListODS" DataTextField="Name" DataValueField="ArtistId" selectedvalue='<%# Eval("ArtistId") %>' Width="300px"></asp:DropDownList>
+                        <asp:DropDownList ID="ArtistList" runat="server" DataSourceID="ArtistListODS" DataTextField="Name" DataValueField="ArtistId" selectedvalue='<%# Eval("ArtistId") %>' Width="300px"></asp:DropDownList>&nbsp;&nbsp;
                        <%-- <asp:Label runat="server" Text='<%# Bind("ArtistId") %>' ID="Label3"></asp:Label>--%>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Year" SortExpression="ReleaseYear">
                    
                     <ItemTemplate>
-                        <asp:Label runat="server" Text='<%# Eval("ReleaseYear") %>' ID="Label4"></asp:Label>
+                        <asp:Label runat="server" Text='<%# Eval("ReleaseYear") %>' ID="Label4"></asp:Label>&nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Label" SortExpression="ReleaseLabel">
                    
                     <ItemTemplate>
-                        <asp:Label runat="server" Text='<%# Eval("ReleaseLabel") %>' ID="Label5"></asp:Label>
+                        <asp:Label runat="server" Text='<%# Eval("ReleaseLabel") %>' ID="Label5"></asp:Label>&nbsp;&nbsp;
                     </ItemTemplate>
                 </asp:TemplateField>
 
