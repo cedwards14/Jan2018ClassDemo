@@ -44,7 +44,7 @@
         <asp:ObjectDataSource ID="ArtistListODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Artists_List" TypeName="ChinookSystem.BLL.ArtistController"></asp:ObjectDataSource>
     </div>
     <div class="row">
-        <asp:Button ID="CountAlbums" runat="server" Text="Count Albums"  />&nbsp;&nbsp;
+        <asp:Button ID="CountAlbums" runat="server" Text="Count Albums" OnClick="CountAlbums_Click"  />&nbsp;&nbsp;
         <asp:Label ID="Label1" runat="server" Text="Number of Albums per Artist"></asp:Label>
     </div>
     <div>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 #region additionalnamespaces
-using Chinook.Data.Entities;
+
 using ChinookSystem.DAL;
 using System.ComponentModel;
+using ChinookSystem.Data.Entities;
 #endregion
 
 namespace ChinookSystem.BLL

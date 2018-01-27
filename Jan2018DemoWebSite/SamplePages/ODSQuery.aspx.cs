@@ -1,9 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+#region additional name spaces
+using Chinook.Data.POCOs;
+#endregion
+
 
 namespace Jan2018DemoWebSite.SamplePages
 {
@@ -31,6 +36,53 @@ namespace Jan2018DemoWebSite.SamplePages
             //& seperates multiple paramter sets
             Response.Redirect("AlbumDetails.aspx?aid=" + albumid);
             
+        }
+
+        protected void CountAlbums_Click(object sender, EventArgs e)
+        {
+            //Traverse a Gridview display
+            //the only records available to us at this time out of the dataset assigned to the gridview 
+            // are the rows beign displayed
+
+            //Create a list<t> ot hold the counds of the display 
+            List<ArtistAlbumCounts> Artists = new List<ArtistAlbumCounts>();
+
+
+            //reusable pointer to an instance of the specified class 
+            ArtistAlbumCounts item = null;
+            int artistid = 0;
+
+            //set up the loop to traverse the gridview 
+            foreach (GridViewRow line in AlbumList.Rows)
+            {
+                //access the artistid 
+                artistid = int.Parse((line.FindControl("ArtistList") as DropDownList).SelectedValue);
+
+                //determine if you have already created a count instance in the list<T> for this artist
+                // if not , create a  new instance for the artist and set its count to 1
+                // if found incremete the counter (+1)
+
+                //search for the artist in List<T>
+                //what will be returned is either null (not found)
+                // or the instance in the list<T>
+                item = Artists.Find(x => x.ArtistId == artistid);
+
+                if(item == null)
+                {
+                    //create instance, initialize add to list<t>
+                    item = new ArtistAlbumCounts();
+                    item.ArtistId = artistid;
+                    item.AlbumCount = 1;
+                    Artists.Add(item);
+                }
+                else
+                {
+                    item.AlbumCount++;
+                }
+            }
+            //attach the list<T> (Collection) to the display control
+            ArtistAlbumCountList.DataSource = Artists;
+            ArtistAlbumCountList.DataBind();
         }
     }
 }
