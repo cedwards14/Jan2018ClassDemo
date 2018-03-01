@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 #region additionalnamespaces
-using ChinookSystem.Data.Entities;
+using Chinook.Data.Entities;
 using ChinookSystem.DAL;
 using System.ComponentModel;
 using Chinook.Data.DTO;

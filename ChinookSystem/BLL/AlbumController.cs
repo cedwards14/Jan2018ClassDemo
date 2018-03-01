@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 #region additionalnamespaces
-
+using Chinook.Data.POCOs;
 using ChinookSystem.DAL;
 using System.ComponentModel;
-using ChinookSystem.Data.Entities;
+using Chinook.Data.Entities;
 #endregion
 
 namespace ChinookSystem.BLL
@@ -38,7 +38,7 @@ namespace ChinookSystem.BLL
 
 
         [DataObjectMethod(DataObjectMethodType.Insert,false)]
-        public  void Albums_Add(Album item)
+        public void Albums_Add(Album item)
         {
             using (var context = new ChinookContext())
             {
@@ -85,6 +85,23 @@ namespace ChinookSystem.BLL
             }
         }
 
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<SelectionList> List_AlbumTitles()
+        {
+
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Albums
+                              orderby x.Title
+                              select new SelectionList
+                              {
+                                  IDValueField = x.AlbumId,
+                                  DisplayText = x.Title
+                              };
+                return results.ToList();
+            }
+        }
 
     }
 }

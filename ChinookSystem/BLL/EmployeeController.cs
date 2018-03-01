@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChinookSystem.DAL;
 using System.ComponentModel;
-using ChinookSystem.Data.Entities;
+using Chinook.Data.Entities;
 using Chinook.Data.DTO;
 
 namespace ChinookSystem.BLL

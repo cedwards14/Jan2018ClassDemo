@@ -1,6 +1,6 @@
-namespace ChinookSystem.Data.Entities
+namespace Chinook.Data.Entities
 {
-    using CChinookSystem.Data.Entities;
+    using Chinook.Data.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

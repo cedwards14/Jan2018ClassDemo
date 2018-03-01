@@ -1,4 +1,4 @@
-namespace ChinookSystem.Data.Entities
+namespace Chinook.Data.Entities
 {
     using System;
     using System.Collections.Generic;
