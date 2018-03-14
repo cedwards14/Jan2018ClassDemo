@@ -168,16 +168,71 @@ namespace ChinookSystem.BLL
                     }
                     else
                     {
+                        //Create an instance pointer to be used to point to the other track involved in the move.
+
+                        PlaylistTrack otherTrack = null;
                         //direction
                         if(direction.Equals("up"))
                         {
+
                             //up
+                            //recheck that the track is not the first track
+                            //If so, throw an error, otherwise move the track
+                            if(moveTrack.TrackNumber==1)
+                            {
+
+                                throw new Exception("Pleaylist track already at top");
+
+                            }
+                            else
+                            {
+                                otherTrack = (from x in exists.PlaylistTracks
+                                              where x.TrackNumber == moveTrack.TrackNumber -1
+                                              select x).FirstOrDefault();
+                                if(otherTrack==null)
+                                {
+                                    throw new Exception("Switching track was not found");
+                                }
+                                else
+                                {
+                                    moveTrack.TrackNumber -= 1;
+                                    otherTrack.TrackNumber += 1;
+                                }
+                            }
+
                         }
 
                         else
                         {
-                            //down
-                        }
+                            if (moveTrack.TrackNumber == exists.PlaylistTracks.Count())
+                            {
+                                throw new Exception("Pleaylist track already below");
+                            }
+                            else
+                            {
+                                otherTrack = (from x in exists.PlaylistTracks
+                                              where x.TrackNumber == moveTrack.TrackNumber + 1
+                                              select x).FirstOrDefault();
+                                if (otherTrack == null)
+                                {
+                                    throw new Exception("Switching track was not found");
+                                }
+                                else
+                                {
+                                    moveTrack.TrackNumber += 1;
+                                    otherTrack.TrackNumber -= 1;
+                                }
+                            }
+                        }//end of up and down
+                        //save the changes to the data
+                        //we are saving 2 different entities
+                        //indicate the property to save for a particular entity instance
+                        context.Entry(moveTrack).Property(y => y.TrackNumber).IsModified = true;
+                        context.Entry(otherTrack).Property(y => y.TrackNumber).IsModified = true;
+                        //commit your changes
+                        context.SaveChanges();
+                       
+
                     }
                 }
             }
