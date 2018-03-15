@@ -243,7 +243,56 @@ namespace ChinookSystem.BLL
         {
             using (var context = new ChinookContext())
             {
-               //code to go here
+                var exists = (from x in context.Playlists
+                              where x.Name.Equals(playlistname)
+                                       && x.UserName.Equals(username)
+                              select x).FirstOrDefault();
+
+                if (exists == null)
+                {
+                    throw new Exception("PLaylist has been removed from the files");
+                }
+                else
+                {
+                    //get a list of tracks that will be kept in order of tracknumber
+                    //you do not know if the physical order is the same as the logical TrackNumber order
+
+                    //.Any() allows you to search for an item in a list  using a condition, returns true if found
+                    //looking for an item in lsitA is inside listB
+                    //in this example we DO NOT want to find it thus !
+                    var tracksKept = exists.PlaylistTracks.Where(tr => !trackstodelete.Any(tod => tod == tr.TrackId)).OrderBy(tr=> tr.TrackNumber).Select(tr =>tr);
+
+
+                    //delete tracks
+                    PlaylistTrack item = null;
+                    foreach(var deletetrackid in trackstodelete)
+                    {
+                        item = exists.PlaylistTracks.Where(tr => tr.TrackId == deletetrackid).FirstOrDefault();
+
+                        if (item != null)
+                        {
+                            exists.PlaylistTracks.Remove(item);
+                        }
+                    
+
+                    }
+
+
+                    //renumber the remaining tracks(Tracks that were kept)
+
+                    int number = 1;
+                    foreach (var tkept in tracksKept)
+                    {
+                        tkept.TrackNumber = number;
+                        number++;
+                        context.Entry(tkept).Property(y => y.TrackNumber).IsModified = true;
+
+                    }
+                    //commit work
+                    context.SaveChanges();
+
+
+                }
 
 
             }
