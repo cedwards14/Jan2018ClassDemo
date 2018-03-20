@@ -8,6 +8,12 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Jan2018DemoWebSite.Models;
 
+
+#region
+using AppSecurity.Entities;
+using AppSecurity.BLL;
+#endregion
+
 namespace Jan2018DemoWebSite
 {
    

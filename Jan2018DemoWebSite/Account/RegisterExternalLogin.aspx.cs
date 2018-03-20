@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Jan2018DemoWebSite.Models;
+using AppSecurity.BLL;
+using AppSecurity.Entities;
 
 namespace Jan2018DemoWebSite.Account
 {

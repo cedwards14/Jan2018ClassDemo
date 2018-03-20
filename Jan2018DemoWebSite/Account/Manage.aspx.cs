@@ -10,6 +10,11 @@ using Microsoft.Owin.Security;
 using Owin;
 using Jan2018DemoWebSite.Models;
 
+
+#region additional namespaces
+using AppSecurity.BLL;
+#endregion
+
 namespace Jan2018DemoWebSite.Account
 {
     public partial class Manage : System.Web.UI.Page

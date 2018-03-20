@@ -7,6 +7,12 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
+
+#region namespaces
+using AppSecurity.BLL;
+#endregion
+
+
 namespace Jan2018DemoWebSite.Account
 {
     public partial class ManagePassword : System.Web.UI.Page

@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#region additional name spaces
+using Microsoft.AspNet.Identity;
+
+#endregion
+
 namespace AppSecurity.BLL
 {
     public class SmsService : IIdentityMessageService
