@@ -83,7 +83,30 @@ namespace ChinookSystem.BLL
                 }
             }//eom
 
+        //this method will create a flat POCO dataset
+        //to use in reporting
 
+            [DataObjectMethod(DataObjectMethodType.Select,false)]
+        public List<GenreAlbumReport> GenreAlbumReport_Get()
+        {
+            using (var context = new ChinookContext())
+            {
+                //there is no need to sort this dataset
+                //the final sort will be don in the report
+                var results = from x in context.Tracks
+                              select new GenreAlbumReport
+                              {
+                                  GenreName = x.Genre.Name,
+                                  AlbumTitle = x.Album.Title,
+                                  TrackName = x.Name,
+                                  Milliseconds = x.Milliseconds,
+                                  Bytes = x.Bytes,
+                                  UnitPrice = x.UnitPrice
+
+                              };
+                return results.ToList();
+}
+        }
         
     }
 }
