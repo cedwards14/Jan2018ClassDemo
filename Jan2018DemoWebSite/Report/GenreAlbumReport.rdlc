@@ -104,7 +104,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value EvaluationMode="Constant">Length</Value>
+                              <Value>Length(m:s)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -250,7 +250,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>="Number of tracks for Genre: " &amp; Count(Fields!AlbumTitle.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -322,12 +322,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=(sum(Fields!Bytes.Value)/1000000)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>#4e0000</Color>
+                                <Format>0.00;(0.00)</Format>
+                                <Color>=IIF((sum(Fields!Bytes.Value)\1000000) &gt;=1000,"#E3FF00" ,"#F1524E")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -347,6 +348,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -436,7 +438,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>= "Number of Tracks: " &amp; Count(Fields!TrackName.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -651,7 +653,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Milliseconds.Value)</Value>
+                              <Value>=(Fields!Milliseconds.Value \ 60000) &amp; ":" &amp; ((Fields!Milliseconds.Value Mod 60000) \ 1000)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -684,10 +686,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Bytes.Value)</Value>
+                              <Value>=Fields!Bytes.Value / 1000000</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
+                                <Format>0.00;(0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -806,7 +809,7 @@
         </TablixRowHierarchy>
         <DataSetName>GenreAlbumDS</DataSetName>
         <Height>1.6in</Height>
-        <Width>9.72917in</Width>
+        <Width>9.72918in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -837,7 +840,9 @@
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox40</rd:DefaultName>
@@ -868,13 +873,15 @@
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox41</rd:DefaultName>
           <Left>8.0925in</Left>
-          <Height>0.25in</Height>
-          <Width>1.63667in</Width>
+          <Height>0.64583in</Height>
+          <Width>2.13667in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
